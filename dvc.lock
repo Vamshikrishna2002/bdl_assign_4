@@ -12,3 +12,21 @@ stages:
       md5: b0a9d905b8da0ba8877a51a0775230aa.dir
       size: 35265064
       nfiles: 10
+  prepare:
+    cmd: python prepare.py
+    deps:
+    - path: download_files/
+      hash: md5
+      md5: b0a9d905b8da0ba8877a51a0775230aa.dir
+      size: 35265064
+      nfiles: 10
+    params:
+      params.yaml:
+        n_locs: 10
+        year: 2003
+    outs:
+    - path: groundtruth/
+      hash: md5
+      md5: d6109afb6dfe1c37a4a7bbc1e1351be4.dir
+      size: 2013
+      nfiles: 10
