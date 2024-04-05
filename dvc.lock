@@ -1,0 +1,14 @@
+schema: '2.0'
+stages:
+  download:
+    cmd: python download.py
+    params:
+      params.yaml:
+        n_locs: 10
+        year: 2003
+    outs:
+    - path: download_files/
+      hash: md5
+      md5: b0a9d905b8da0ba8877a51a0775230aa.dir
+      size: 35265064
+      nfiles: 10
