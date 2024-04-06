@@ -17,8 +17,8 @@ stages:
     deps:
     - path: download_files/
       hash: md5
-      md5: b0a9d905b8da0ba8877a51a0775230aa.dir
-      size: 35265064
+      md5: 20fe822e1e05d884801cddef7fae015b.dir
+      size: 23959812
       nfiles: 10
     params:
       params.yaml:
@@ -27,17 +27,27 @@ stages:
     outs:
     - path: groundtruth/
       hash: md5
-      md5: d6109afb6dfe1c37a4a7bbc1e1351be4.dir
-      size: 2013
+      md5: bf2351bfcd08234576820e54d4da7c4f.dir
+      size: 1907
       nfiles: 10
+    - path: listfields/
+      hash: md5
+      md5: ee41e5ef624de1bad1e192c8fdd5d290.dir
+      size: 64
+      nfiles: 1
   process:
     cmd: python process.py
     deps:
     - path: download_files/
       hash: md5
-      md5: b0a9d905b8da0ba8877a51a0775230aa.dir
-      size: 35265064
+      md5: 20fe822e1e05d884801cddef7fae015b.dir
+      size: 23959812
       nfiles: 10
+    - path: listfields/
+      hash: md5
+      md5: ee41e5ef624de1bad1e192c8fdd5d290.dir
+      size: 64
+      nfiles: 1
     params:
       params.yaml:
         n_locs: 10
@@ -45,21 +55,26 @@ stages:
     outs:
     - path: predicted/
       hash: md5
-      md5: 1f80d74b446d4c5d3464637f90b761a7.dir
-      size: 4973
+      md5: aec69d8dba6abd589b3023e0ed2400d4.dir
+      size: 4694
       nfiles: 10
   evaluate:
     cmd: python evaluate.py
     deps:
     - path: groundtruth/
       hash: md5
-      md5: d6109afb6dfe1c37a4a7bbc1e1351be4.dir
-      size: 2013
+      md5: bf2351bfcd08234576820e54d4da7c4f.dir
+      size: 1907
       nfiles: 10
+    - path: listfields/
+      hash: md5
+      md5: ee41e5ef624de1bad1e192c8fdd5d290.dir
+      size: 64
+      nfiles: 1
     - path: predicted/
       hash: md5
-      md5: 1f80d74b446d4c5d3464637f90b761a7.dir
-      size: 4973
+      md5: aec69d8dba6abd589b3023e0ed2400d4.dir
+      size: 4694
       nfiles: 10
     params:
       params.yaml:
@@ -68,6 +83,6 @@ stages:
     outs:
     - path: r2score/
       hash: md5
-      md5: 9cc2bb728a230ce72410500eb4ce5274.dir
+      md5: 7e4ca9f78beb21ca480881e9a501618e.dir
       size: 498
       nfiles: 1

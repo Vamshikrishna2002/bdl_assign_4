@@ -15,10 +15,12 @@ stages:
     - year
     outs:
     - groundtruth/
+    - listfields/
   process:
     cmd: python process.py
     deps:
     - download_files/
+    - listfields/
     params:
     - n_locs
     - year
@@ -28,6 +30,7 @@ stages:
     cmd: python evaluate.py
     deps:
     - groundtruth/
+    - listfields/
     - predicted/
     params:
     - n_locs
