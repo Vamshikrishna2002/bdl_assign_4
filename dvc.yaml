@@ -1,0 +1,36 @@
+stages:
+  download:
+    cmd: python download.py
+    params:
+    - n_locs
+    - year
+    outs:
+    - download_files/
+  prepare:
+    cmd: python prepare.py
+    deps:
+    - download_files/
+    params:
+    - n_locs
+    - year
+    outs:
+    - groundtruth/
+  process:
+    cmd: python process.py
+    deps:
+    - download_files/
+    params:
+    - n_locs
+    - year
+    outs:
+    - predicted/
+  evaluate:
+    cmd: python evaluate.py
+    deps:
+    - groundtruth/
+    - predicted/
+    params:
+    - n_locs
+    - year
+    outs:
+    - r2score/

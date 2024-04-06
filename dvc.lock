@@ -9,8 +9,8 @@ stages:
     outs:
     - path: download_files/
       hash: md5
-      md5: b0a9d905b8da0ba8877a51a0775230aa.dir
-      size: 35265064
+      md5: 20fe822e1e05d884801cddef7fae015b.dir
+      size: 23959812
       nfiles: 10
   prepare:
     cmd: python prepare.py
